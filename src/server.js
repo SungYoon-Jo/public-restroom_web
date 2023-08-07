@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("src/public/css"));
 app.use(express.static("src/public/js"));
+app.use(express.static("src/public/images"));
 
 app.use("/", rootRouter);
 

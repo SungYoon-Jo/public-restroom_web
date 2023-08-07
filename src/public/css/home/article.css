@@ -1,0 +1,105 @@
+.board {
+  max-width: 320px;
+  height: 1700px;
+  background-color: white;
+}
+
+.board_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+}
+
+.board_header .board_logo {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url("../images/test_logo");
+}
+
+.board_header .board_title {
+  line-height: 20px;
+  margin: 0 10px;
+}
+.board_title .board_mainTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.board_title .board_subTitle {
+  font-size: 5px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.board_menu {
+  margin-left: 15px;
+  height: 560px;
+}
+
+.board_menu p {
+  font-size: 12px;
+  font-weight: bold;
+  color: #868e96;
+  text-transform: uppercase;
+}
+
+.board_menu .board_mainMenu {
+  height: 400px;
+}
+
+.board_menu .board_preferences {
+  height: 200px;
+}
+
+.board_menu .board_mainMenu li,
+.board_menu .board_preferences li {
+  width: 270px;
+  height: 55px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: #868e96;
+  display: flex;
+}
+
+.board_menu .board_mainMenu li a,
+.board_menu .board_preferences li a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #343a40;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.board_menu .material-icons {
+  margin: 10px;
+}
+
+.update {
+  width: 270px;
+  height: 180px;
+  background-color: #fff9db;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.update .update_massage {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fc912b;
+}
+.update .update_description {
+  font-size: 14px;
+  color: #343a40;
+}
+.update .update_btn {
+  width: 140px;
+  height: 40px;
+  color: #fff;
+  background-color: #343a40;
+  border-radius: 5px;
+  border: 0;
+}
