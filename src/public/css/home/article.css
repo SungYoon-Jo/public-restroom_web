@@ -1,5 +1,8 @@
 .board {
-  max-width: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
   height: 1700px;
   background-color: white;
 }
@@ -23,13 +26,13 @@
   margin: 0 10px;
 }
 .board_title .board_mainTitle {
+  font-family: var(--font-kor);
   font-size: 20px;
-  font-weight: bold;
 }
 
 .board_title .board_subTitle {
   font-size: 5px;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--color-font);
 }
 
 .board_menu {
@@ -56,10 +59,14 @@
 .board_menu .board_preferences li {
   width: 270px;
   height: 55px;
-  margin: 10px 0;
+  margin: 10px 10px;
   border-radius: 5px;
-  background-color: #868e96;
   display: flex;
+}
+.board_menu .board_mainMenu li a:hover,
+.board_menu .board_preferences li a:hover {
+  background-color: #343a40;
+  color: #fff;
 }
 
 .board_menu .board_mainMenu li a,
@@ -70,6 +77,7 @@
   color: #343a40;
   font-weight: bold;
   font-size: 16px;
+  border-radius: 5px;
 }
 
 .board_menu .material-icons {
@@ -84,15 +92,16 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .update .update_massage {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 900;
   color: #fc912b;
 }
 .update .update_description {
-  font-size: 14px;
+  font-size: 12px;
   color: #343a40;
 }
 .update .update_btn {
@@ -102,4 +111,7 @@
   background-color: #343a40;
   border-radius: 5px;
   border: 0;
+  font-weight: 900;
+  font-size: 14px;
+  cursor: pointer;
 }

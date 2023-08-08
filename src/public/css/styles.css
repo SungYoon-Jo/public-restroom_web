@@ -10,7 +10,10 @@ body {
   line-height: 1;
   word-break: keep-all;
   background-color: #f5f5f5;
+  max-width: 1550px;
   max-height: 1700px;
+  font-family: "Roboto", sans-serif;
+  position: relative;
 }
 a {
   text-decoration: none;
@@ -22,5 +25,9 @@ img {
   -webkit-user-drag: none;
 }
 html {
+  --color-font: rgba(0, 0, 0, 0.4);
+  --color-border: rgba(0, 0, 0, 0.1);
   --color-board: #868e96;
+  --font-eng: "Roboto", sans-serif;
+  --font-kor: "Gowun Batang", sans-serif;
 }
