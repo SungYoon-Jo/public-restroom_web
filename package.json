@@ -2,10 +2,13 @@
   "name": "public-restroom_web",
   "version": "1.0.0",
   "description": "goodday",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "nodemon --exec babel-node src/init.js",
-    "dev:server": "nodemon"
+    "dev:server": "nodemon",
+    "wdev": "webpack -d --watch",
+    "wprod": "webpack -p",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +18,13 @@
     "@babel/preset-env": "^7.22.9",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "lodash": "^4.17.21",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   }
 }
