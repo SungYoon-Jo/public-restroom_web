@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec babel-node src/init.js",
     "dev:server": "nodemon",
-    "wdev": "webpack -d --watch",
+    "wdev": "webpack --mode=development -w",
     "wprod": "webpack -p",
     "build": "webpack"
   },
