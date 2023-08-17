@@ -2,7 +2,6 @@
   "name": "public-restroom_web",
   "version": "1.0.0",
   "description": "goodday",
-  "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/init.js",
     "dev:server": "nodemon",
