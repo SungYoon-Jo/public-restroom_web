@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "nodemon --exec babel-node src/init.js",
     "dev:server": "nodemon",
-    "start": "nodemon"
+    "start": "nodemon",
+    "build:server": "babel src -d build",
+    "build:start": "node build/init.js"
   },
   "author": "",
   "license": "ISC",

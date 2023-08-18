@@ -1,4 +1,4 @@
-FROM node:current-slim
+FROM node:18-alpine
 
 WORKDIR /workspace
 
@@ -18,6 +18,6 @@ RUN npm install
 
 EXPOSE 4000
 
-CMD [ "npm", "run", "dev:server" ]
+# CMD [ "npm", "run", "dev:server" ]/
 
-# COPY . .
+CMD [ "npm", "run", "build:start" ]
