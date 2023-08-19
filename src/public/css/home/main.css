@@ -106,37 +106,6 @@ main {
   border-radius: 10px;
 }
 
-.view_status .status_one_data {
-  width: 100px;
-  background-color: rgb(171, 247, 31);
-  margin: 5px;
-  text-align: center;
-  background-image: url("/toilet.png");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.view_status .status_two_data {
-  display: flex;
-  align-items: center;
-  border-left: 1px solid var(--color-border);
-}
-
-.status_two_data li {
-  width: 100px;
-  height: 90px;
-  margin-left: 5px;
-}
-
-.status_two_data .tissue_msg {
-  background-color: rgb(47, 191, 235);
-  border-radius: 10px;
-}
-.status_two_data .human_msg {
-  background-color: rgb(100, 151, 100);
-  border-radius: 10px;
-}
-
 .view_example {
   display: flex;
   width: 1200px;

@@ -1,5 +1,5 @@
-const StatusOneData = document.querySelector(".status_one_data");
-const StatusTwoData = document.querySelector(".status_two_data");
+const StatusOneData = document.querySelector(".status_one");
+const StatusTwoData = document.querySelector(".status_two");
 
 const handleData = async () => {
   await fetch("./test.json")
@@ -13,7 +13,7 @@ const handleData = async () => {
 
       if (tissue) {
         const twoChild = document.createElement("li");
-        twoChild.classList = "one_color";
+        twoChild.classList = "tissue_msg";
         StatusTwoData.appendChild(twoChild);
       } else {
         console.log("tissue data is not");
@@ -21,7 +21,7 @@ const handleData = async () => {
 
       if (human) {
         const twoChild = document.createElement("li");
-        twoChild.classList = "two_color";
+        twoChild.classList = "human_msg";
         StatusTwoData.appendChild(twoChild);
       } else {
         console.log("human data is not");
