@@ -5,6 +5,7 @@ import rootRouter from "./routers/rootRouter";
 
 const app = express();
 const logger = morgan("dev");
+const path = require("path");
 
 app.set("view engine", "ejs");
 app.set("views", process.cwd() + "/src/views");
@@ -15,7 +16,13 @@ app.use(express.static("src/public/css"));
 app.use(express.static("src/public/js"));
 app.use(express.static("src/public/images"));
 
-app.use("/", rootRouter);
+// app.use("/", rootRouter);
+
+app.use("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html")); // index.html 파일 응답
+  //   res.render("home", { pageTitle: "Home Page" });
+});
+
 app.use("/test", rootRouter);
 
 export default app;

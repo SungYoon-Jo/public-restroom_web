@@ -1,7 +1,9 @@
-import data from "../public/js/testData.js";
+// import data from "../public/js/testData.js";
 
 export const Home = (req, res) => {
-  res.render("home", { pageTitle: "Home", data });
+  // console.log(path.join("home"));
+
+  res.render("home", { pageTitle: "Home" });
 };
 
 export const Test = (req, res) => {
