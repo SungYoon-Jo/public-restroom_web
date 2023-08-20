@@ -12,7 +12,7 @@ const { SerialPort } = require("serialport");
 const wsModule = require("ws");
 
 const serialPort = new SerialPort({
-  path: "COM2",
+  path: "COM3",
   baudRate: 19200,
 
   // path: "COM3",

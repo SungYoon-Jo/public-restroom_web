@@ -57,6 +57,7 @@ main {
   margin-bottom: 15px;
 }
 
+.status_main,
 .view_status .status_one,
 .view_status .status_one_red {
   width: 100px;
@@ -72,14 +73,14 @@ main {
 .view_status .status_one_red {
   background-color: red;
 }
-
+.status_other,
 .view_status .status_two {
   display: flex;
   align-items: center;
   border-left: 1px solid var(--color-border);
   border-radius: 5px;
 }
-
+.status_other li,
 .status_two li,
 .view_example > li > div {
   width: 100px;

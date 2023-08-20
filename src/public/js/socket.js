@@ -11,7 +11,38 @@ webSocket.onopen = () => {
 webSocket.onmessage = function (event) {
   // console.log(`서버 웹소켓에게 받은 데이터: ${event.data}`);
 
-  console.log(event.data);
+  const StatusMainData = document.querySelector(".status_main");
+  const StatusOtherData = document.querySelector(".status_other");
+  const twoChild = document.createElement("li");
+
+  var num = 0;
+  var human = Number(event.data[15]);
+  var tissue = Number(event.data.slice(32, 35));
+
+  if (human === 0) {
+    StatusMainData.style.backgroundColor = "rgb(171, 247, 31)";
+    if (twoChild.classList.value === "human_msg") {
+      console.log("hi");
+      StatusOtherData.removeChild(twoChild);
+    }
+  } else {
+    StatusMainData.style.backgroundColor = "red";
+    twoChild.classList = "human_msg";
+    num = 1;
+    if (num === 1) {
+      num = 0;
+      StatusOtherData.appendChild(twoChild);
+    }
+  }
+  console.log(num);
+
+  // if (tissue) {
+  //   const twoChild = document.createElement("li");
+  //   twoChild.classList = "tissue_msg";
+  //   StatusTwoData.appendChild(twoChild);
+  // } else {
+  //   console.log("tissue data is not");
+  // }
 };
 
 // 2-3) 연결 종료 이벤트 처리
