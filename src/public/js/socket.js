@@ -18,19 +18,20 @@ webSocket.onmessage = function (event) {
   var human = Number(event.data[15]);
   var tissue = Number(event.data.slice(32, 35));
 
+  // 값은 275 or 283 테트트중
+  var tissueBoundary = 283;
+
   human === 1
     ? (humanData.style.display = "block")
     : (humanData.style.display = "none");
 
-  tissue >= 275
+  tissue < tissueBoundary
     ? (tissueData.style.display = "block")
     : (tissueData.style.display = "none");
 
-  if (human === 1 || tissue >= 275) {
-    StatusMainData.style.backgroundColor = "red";
-  } else {
-    StatusMainData.style.backgroundColor = "rgb(171, 247, 31)";
-  }
+  human === 1 || tissue < tissueBoundary
+    ? (StatusMainData.style.backgroundColor = "red")
+    : (StatusMainData.style.backgroundColor = "rgb(171, 247, 31)");
 
   console.log(human, humanData.style.display, tissue);
 
