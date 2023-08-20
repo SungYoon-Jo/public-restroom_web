@@ -12,7 +12,7 @@ const { SerialPort } = require("serialport");
 const wsModule = require("ws");
 
 const serialPort = new SerialPort({
-  path: "COM4",
+  path: "COM2",
   baudRate: 19200,
 
   // path: "COM3",
@@ -54,3 +54,31 @@ webSocketServer.on("connection", (ws, request) => {
     return resultList;
   }
 });
+
+// const express = require("express");
+// const app = express();
+// const http = require("http");
+// const server = http.createServer(app);
+// const socketIo = require("socket.io");
+// const io = socketIo(server);
+
+// io.on("connection", (socket) => {
+//   console.log(`Socket connected ${socket.id}`);
+//   socket.on("roomjoin", (userid) => {
+//     console.log(userid);
+//     // socket.join(userid);
+//   });
+//   socket.on("message", (obj) => {
+//     // 클라이언트에서 message라는 이름의 이벤트를 받았을 경우 호출
+//     console.log("server received data");
+//     console.log(obj);
+//   });
+//   socket.on("disconnect", () => {
+//     // 클라이언트의 연결이 끊어졌을 때 호출
+//     console.log(`Socket disconnected : ${socket.id}`);
+//   });
+// });
+
+// server.listen(4000, function () {
+//   console.log(`start! express server on port ${4000}`);
+// });

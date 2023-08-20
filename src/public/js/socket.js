@@ -9,10 +9,9 @@ webSocket.onopen = () => {
 
 // 2-2) 메세지 수신 이벤트 처리
 webSocket.onmessage = function (event) {
-  console.log(`서버 웹소켓에게 받은 데이터: ${event.data}`);
+  // console.log(`서버 웹소켓에게 받은 데이터: ${event.data}`);
 
-  // var jsonData = JSON.stringify(event.data);
-  // console.log(jsonData);
+  console.log(event.data);
 };
 
 // 2-3) 연결 종료 이벤트 처리
@@ -47,37 +46,3 @@ webSocket.onerror = function (event) {
 //     alert("연결된 웹소켓 서버가 없습니다.");
 //   }
 // };
-
-// const StatusOneData = document.querySelector(".status_one");
-// const StatusTwoData = document.querySelector(".status_two");
-
-// const handleData = async () => {
-//   await fetch("./test.json")
-//     .then((res) => res.json())
-//     .then((data) => {
-//       const { human, tissue } = data[0];
-
-//       human || tissue
-//         ? (StatusOneData.style.backgroundColor = "red")
-//         : (StatusOneData.style.backgroundColor = "rgb(171, 247, 31)");
-
-//       if (tissue) {
-//         const twoChild = document.createElement("li");
-//         twoChild.classList = "tissue_msg";
-//         StatusTwoData.appendChild(twoChild);
-//       } else {
-//         console.log("tissue data is not");
-//       }
-
-//       if (human) {
-//         const twoChild = document.createElement("li");
-//         twoChild.classList = "human_msg";
-//         StatusTwoData.appendChild(twoChild);
-//       } else {
-//         s;
-//         console.log("human data is not");
-//       }
-//     });
-// };
-
-// handleData();
