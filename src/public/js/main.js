@@ -24,6 +24,7 @@ const handleData = async () => {
         twoChild.classList = "human_msg";
         StatusTwoData.appendChild(twoChild);
       } else {
+        s;
         console.log("human data is not");
       }
     });

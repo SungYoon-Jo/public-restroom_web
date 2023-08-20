@@ -1,46 +1,32 @@
-// 1. 웹소켓 클라이언트 객체 생성
-const webSocket = new WebSocket("ws://localhost:4000");
+const WebSocket = require("ws");
 
-// 2. 웹소켓 이벤트 처리
-// 2-1) 연결 이벤트 처리
-webSocket.onopen = () => {
-  console.log("웹소켓서버와 연결 성공");
-};
+module.exports = (server) => {
+  const wss = new WebSocket.Server({ server }); // 익스프레스 서버와 웹 소켓 서버 연결
 
-// 2-2) 메세지 수신 이벤트 처리
-webSocket.onmessage = function (event) {
-  console.log(`서버 웹소켓에게 받은 데이터: ${event.data}`);
-};
+  wss.on("connection", (ws, req) => {
+    // 클라이언트가 서버와 웹소켓 연결 시 발생하는 이벤트
+    const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress; // 클라이언트의 IP
+    console.log("새로운 클라이언트 접속", ip);
+    ws.on("message", (message) => {
+      // 클라이언트로부터 메시지가 왔을 때
+      console.log(message);
+    });
+    ws.on("error", (error) => {
+      // 웹 소켓 연결 중 문제가 생겼을 때
+      console.error(error);
+    });
+    ws.on("close", () => {
+      // 클라이언트와 연결이 끊겼을 때
+      console.log("클라이언트 접속 해제", ip);
+      clearInterval(ws.interval); // interval 정리
+    });
 
-// 2-3) 연결 종료 이벤트 처리
-webSocket.onclose = function () {
-  console.log("서버 웹소켓 연결 종료");
-};
-
-// 2-4) 에러 발생 이벤트 처리
-webSocket.onerror = function (event) {
-  console.log(event);
-};
-
-// 3. 버튼 클릭 이벤트 처리
-// 3-1) 웹소켓 서버에게 메세지 보내기
-let count = 1;
-document.getElementById("btn_send").onclick = function () {
-  if (webSocket.readyState === webSocket.OPEN) {
-    // 연결 상태 확인
-    webSocket.send(`증가하는 숫자를 보냅니다 => ${count}`); // 웹소켓 서버에게 메시지 전송
-    count++; // 보낼때마다 숫자를 1씩 증가
-  } else {
-    alert("연결된 웹소켓 서버가 없습니다.");
-  }
-};
-
-// 3-2) 웹소켓 서버와 연결 끊기
-document.getElementById("btn_close").onclick = function () {
-  if (webSocket.readyState === webSocket.OPEN) {
-    // 연결 상태 확인
-    webSocket.close(); // 연결 종료
-  } else {
-    alert("연결된 웹소켓 서버가 없습니다.");
-  }
+    ws.interval = setInterval(() => {
+      // 3초마다 연결된 모든 클라이언트에게 메시지 전송
+      if (ws.readyState === ws.OPEN) {
+        // 상태가 OPEN일 경우 메세지 전송
+        ws.send("서버에서 클라이언트로 메시지를 보냅니다.");
+      }
+    }, 3000);
+  });
 };

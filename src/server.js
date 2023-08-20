@@ -19,8 +19,8 @@ app.use(express.static("src/public/images"));
 // app.use("/", rootRouter);
 
 app.use("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html")); // index.html 파일 응답
-  //   res.render("home", { pageTitle: "Home Page" });
+  res.sendFile(path.join(__dirname, "home.html")); // index.html 파일 응답
+  res.render("home", { pageTitle: "Home Page" });
 });
 
 app.use("/test", rootRouter);

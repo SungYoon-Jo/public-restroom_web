@@ -25,19 +25,19 @@ const webSocketServer = new wsModule.Server({
   server: HTTPServer,
 });
 
-let arduData = {
+var arduData = {
   human: 0,
   tissue: 0,
 };
 webSocketServer.on("connection", (ws, request) => {
   parser.on("data", (data) => {
-    let dataToString = data.toString();
+    var dataToString = data.toString();
 
-    let goodDat = parseString(dataToString);
+    var goodDat = parseString(dataToString);
     arduData.human = goodDat[0];
     arduData.tissue = goodDat[1];
 
-    let sendData = `{
+    var sendData = `{
       human: ${arduData.human},
       tissue: ${arduData.tissue},
     }`;
@@ -45,9 +45,9 @@ webSocketServer.on("connection", (ws, request) => {
     ws.send(sendData);
   });
   function parseString(data) {
-    let resultList = [];
-    let commaSplit = data.split(",");
-    let human = commaSplit[0];
+    var resultList = [];
+    var commaSplit = data.split(",");
+    var human = commaSplit[0];
     resultList[0] = Number(human.split("<")[1]);
     resultList[1] = Number(commaSplit[1]);
 
