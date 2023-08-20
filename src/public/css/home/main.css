@@ -88,12 +88,15 @@ main {
   margin-left: 5px;
 }
 
-.tissue_msg {
-  background-color: rgb(47, 191, 235);
+/* .status_other .human_data, */
+.status_two .human_msg {
+  background-color: rgb(100, 151, 100);
   border-radius: 10px;
 }
-.human_msg {
-  background-color: rgb(100, 151, 100);
+
+/* .status_other .tissue_data, */
+.status_two .tissue_msg {
+  background-color: rgb(47, 191, 235);
   border-radius: 10px;
 }
 
@@ -122,4 +125,24 @@ main {
   display: flex;
   align-items: center;
   margin: 0 15px;
+}
+
+/* .status_other .human_data .hide {
+  display: none;
+}
+
+.status_other .tissue_data .hide {
+  display: none;
+} */
+
+.status_other .human_data {
+  display: none;
+  background-color: rgb(100, 151, 100);
+  border-radius: 10px;
+}
+
+.status_other .tissue_data {
+  display: none;
+  background-color: rgb(47, 191, 235);
+  border-radius: 10px;
 }

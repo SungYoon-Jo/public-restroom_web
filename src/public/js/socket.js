@@ -12,29 +12,27 @@ webSocket.onmessage = function (event) {
   // console.log(`서버 웹소켓에게 받은 데이터: ${event.data}`);
 
   const StatusMainData = document.querySelector(".status_main");
-  const StatusOtherData = document.querySelector(".status_other");
-  const twoChild = document.createElement("li");
+  const humanData = document.querySelector(".human_data");
+  const tissueData = document.querySelector(".tissue_data");
 
-  var num = 0;
   var human = Number(event.data[15]);
   var tissue = Number(event.data.slice(32, 35));
 
-  if (human === 0) {
-    StatusMainData.style.backgroundColor = "rgb(171, 247, 31)";
-    if (twoChild.classList.value === "human_msg") {
-      console.log("hi");
-      StatusOtherData.removeChild(twoChild);
-    }
-  } else {
+  human === 1
+    ? (humanData.style.display = "block")
+    : (humanData.style.display = "none");
+
+  tissue >= 275
+    ? (tissueData.style.display = "block")
+    : (tissueData.style.display = "none");
+
+  if (human === 1 || tissue >= 275) {
     StatusMainData.style.backgroundColor = "red";
-    twoChild.classList = "human_msg";
-    num = 1;
-    if (num === 1) {
-      num = 0;
-      StatusOtherData.appendChild(twoChild);
-    }
+  } else {
+    StatusMainData.style.backgroundColor = "rgb(171, 247, 31)";
   }
-  console.log(num);
+
+  console.log(human, humanData.style.display, tissue);
 
   // if (tissue) {
   //   const twoChild = document.createElement("li");
