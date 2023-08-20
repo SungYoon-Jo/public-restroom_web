@@ -16,8 +16,6 @@ app.use(express.static("src/public/js"));
 app.use(express.static("src/public/images"));
 
 app.use("/", rootRouter);
-
-console.log(process.cwd());
-console.log(__dirname);
+app.use("/test", rootRouter);
 
 export default app;
