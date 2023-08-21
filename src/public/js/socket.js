@@ -1,10 +1,8 @@
-// 웹소켓 클라이언트 객체 생성
-var webSocket = new WebSocket("ws://localhost:4000");
+// 웹소켓 클라이언트 객체 생성 및 접속 IP + PORT 설정
+// PORT는 서버 컴퓨터 고유 IP + PORT로 설정 해야함
+var webSocket = new WebSocket(`ws://192.168.0.192:4000`);
 
-console.log(webSocket);
-
-// 웹소켓 이벤트 처리
-// 연결 이벤트 처리
+// 웹소켓 연결 확인 이벤트 처리
 webSocket.onopen = () => {
   console.log("웹소켓서버와 연결 성공");
 };
