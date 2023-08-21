@@ -57,6 +57,7 @@ main {
   margin-bottom: 15px;
 }
 
+.status_main,
 .view_status .status_one,
 .view_status .status_one_red {
   width: 100px;
@@ -72,14 +73,14 @@ main {
 .view_status .status_one_red {
   background-color: red;
 }
-
+.status_other,
 .view_status .status_two {
   display: flex;
   align-items: center;
   border-left: 1px solid var(--color-border);
   border-radius: 5px;
 }
-
+.status_other li,
 .status_two li,
 .view_example > li > div {
   width: 100px;
@@ -87,12 +88,15 @@ main {
   margin-left: 5px;
 }
 
-.tissue_msg {
-  background-color: rgb(47, 191, 235);
+.view_example .human_msg,
+.status_two .human_msg {
+  background-color: rgb(100, 151, 100);
   border-radius: 10px;
 }
-.human_msg {
-  background-color: rgb(100, 151, 100);
+
+.view_example .tissue_msg,
+.status_two .tissue_msg {
+  background-color: rgb(47, 191, 235);
   border-radius: 10px;
 }
 
@@ -103,37 +107,6 @@ main {
 
 .status_yellow {
   background-color: rgb(171, 247, 31);
-  border-radius: 10px;
-}
-
-.view_status .status_one_data {
-  width: 100px;
-  background-color: rgb(171, 247, 31);
-  margin: 5px;
-  text-align: center;
-  background-image: url("/toilet.png");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.view_status .status_two_data {
-  display: flex;
-  align-items: center;
-  border-left: 1px solid var(--color-border);
-}
-
-.status_two_data li {
-  width: 100px;
-  height: 90px;
-  margin-left: 5px;
-}
-
-.status_two_data .tissue_msg {
-  background-color: rgb(47, 191, 235);
-  border-radius: 10px;
-}
-.status_two_data .human_msg {
-  background-color: rgb(100, 151, 100);
   border-radius: 10px;
 }
 
@@ -152,4 +125,24 @@ main {
   display: flex;
   align-items: center;
   margin: 0 15px;
+}
+
+/* .status_other .human_data .hide {
+  display: none;
+}
+
+.status_other .tissue_data .hide {
+  display: none;
+} */
+
+.status_other .human_data {
+  display: none;
+  background-color: rgb(100, 151, 100);
+  border-radius: 10px;
+}
+
+.status_other .tissue_data {
+  display: none;
+  background-color: rgb(47, 191, 235);
+  border-radius: 10px;
 }
