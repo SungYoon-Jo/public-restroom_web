@@ -23,13 +23,17 @@ const parser = serialPort.pipe(new ReadlineParser({ delimiter: "\r\n" }));
 
 const webSocketServer = new wsModule.Server({
   server: HTTPServer,
+  // port: "4001",
 });
+// console.log(webSocketServer);
 
 var arduData = {
   human: 0,
   tissue: 0,
 };
 webSocketServer.on("connection", (ws, request) => {
+  console.log(ws);
+
   parser.on("data", (data) => {
     var dataToString = data.toString();
 

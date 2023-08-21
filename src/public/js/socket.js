@@ -1,5 +1,7 @@
 // 웹소켓 클라이언트 객체 생성
-const webSocket = new WebSocket("ws://localhost:4000");
+var webSocket = new WebSocket("ws://localhost:4000");
+
+console.log(webSocket);
 
 // 웹소켓 이벤트 처리
 // 연결 이벤트 처리
@@ -18,7 +20,7 @@ webSocket.onmessage = function (event) {
   var human = Number.parseFloat(event.data[15]);
   var tissue = Number.parseFloat(event.data.slice(32, 35));
 
-  // 값은 275 or 283 테트트중
+  // 값은 275 or 283 테스트중
   var tissueBoundary = 275;
   // var tissueBoundary = 279;
 
