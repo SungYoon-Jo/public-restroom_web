@@ -88,13 +88,13 @@ main {
   margin-left: 5px;
 }
 
-/* .status_other .human_data, */
+.view_example .human_msg,
 .status_two .human_msg {
   background-color: rgb(100, 151, 100);
   border-radius: 10px;
 }
 
-/* .status_other .tissue_data, */
+.view_example .tissue_msg,
 .status_two .tissue_msg {
   background-color: rgb(47, 191, 235);
   border-radius: 10px;

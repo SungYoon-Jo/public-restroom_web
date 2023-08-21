@@ -15,11 +15,11 @@ webSocket.onmessage = function (event) {
   const humanData = document.querySelector(".human_data");
   const tissueData = document.querySelector(".tissue_data");
 
-  var human = Number(event.data[15]);
-  var tissue = Number(event.data.slice(32, 35));
+  var human = Number.parseFloat(event.data[15]);
+  var tissue = Number.parseFloat(event.data.slice(32, 35));
 
   // 값은 275 or 283 테트트중
-  var tissueBoundary = 286;
+  var tissueBoundary = 279;
 
   human === 1
     ? (humanData.style.display = "block")
