@@ -19,7 +19,8 @@ webSocket.onmessage = function (event) {
   var tissue = Number.parseFloat(event.data.slice(32, 35));
 
   // 값은 275 or 283 테트트중
-  var tissueBoundary = 279;
+  var tissueBoundary = 275;
+  // var tissueBoundary = 279;
 
   human === 1
     ? (humanData.style.display = "block")
