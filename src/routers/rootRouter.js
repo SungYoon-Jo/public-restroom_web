@@ -1,11 +1,11 @@
 import express from "express";
 
-import { Home, Test } from "../controllers/infoController";
+import { getHome, getData, postData } from "../controllers/infoController";
 
 const rootRouter = express.Router();
 
-rootRouter.route("/").get(Home);
+rootRouter.route("/").get(getHome);
 
-rootRouter.route("/test").get(Test);
+rootRouter.route("/data").get(getData).post(postData);
 
 export default rootRouter;

@@ -1,7 +1,11 @@
-export const Home = (req, res) => {
+export const getHome = (req, res) => {
   res.render("home", { pageTitle: "Home" });
 };
 
-export const Test = (req, res) => {
-  res.render("test", { pageTitle: "Test" });
+export const getData = (req, res) => {
+  res.render("home", { pageTitle: "Home", receivedData });
+};
+
+export const postData = (req, res) => {
+  const receivedData = req.body.data;
 };
