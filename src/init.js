@@ -1,6 +1,6 @@
 import app from "./server";
 
-const SERVERPORT = process.env.PORT || 4000;
+const SERVERPORT = process.env.PORT || 3000;
 
 const handleListening = () =>
   console.log(`✅ Server listenting on port http://localhost:${SERVERPORT} 🚀`);
@@ -15,8 +15,8 @@ const { WebSocketServer } = require("ws");
 // baudRate는 하드웨어랑 맞춰야함
 // 연결장치의 path를 모를땐 장치 관리자 -> 포트(COM & LPT)에 나와있음
 const serialPort = new SerialPort({
-  // path: "COM3",
-  path: "COM4",
+  path: "COM3",
+  // path: "COM4",
   baudRate: 19200,
 
   // baudRate: 9600,
@@ -27,10 +27,8 @@ const parser = serialPort.pipe(new ReadlineParser({ delimiter: "\r\n" }));
 
 // 데이터 라우팅 포트 설정
 const webSocketServer = new WebSocketServer({
-  // HTTPServer = 4000
   server: HTTPServer,
 });
-// console.log(webSocketServer);
 
 // 1. String 데이터를 정게하기 위한 임의 공간
 var arduData = {
