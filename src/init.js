@@ -1,80 +1,89 @@
-import app from "./server";
+// import app from "./server";
 
-const SERVERPORT = process.env.PORT || 4000;
+const net = require("net");
 
-const handleListening = () =>
+import express from "express";
+const app = express();
+
+const handleListening = (SERVERPORT) =>
   console.log(`✅ Server listenting on port http://localhost:${SERVERPORT} 🚀`);
 
-const HTTPServer = app.listen(SERVERPORT, handleListening);
+const TCPPORT = process.env.PORT || 4500;
 
-const WebSocketServer = require("websocket").server;
+var arduData = {
+  human: 0,
+  tissue: 0,
+};
 
-// 데이터 라우팅 포트 설정
-const webSocketServer = new WebSocketServer({
-  // httpServer: HTTPServer,
-  httpServer: HTTPServer,
-  autoAcceptConnections: false,
-});
+const server = net.createServer((soket) => {
+  console.log("클라이언트가 연결되었습니다.");
 
-// console.log(webSocketServer);
+  soket.on("data", (data) => {
+    const receivedData = data.toString();
 
-function originIsAllowed(origin) {
-  console.log(origin);
-  return true;
-}
+    var goodDat = parseString(receivedData);
 
-webSocketServer.on("request", function (request) {
-  console.log(request);
-  if (!originIsAllowed(request.origin)) {
-    request.reject();
-    console.log(
-      new Date() + " Connection from origin " + request.origin + " rejected."
-    );
-    return;
-  }
+    var human = (arduData.human = goodDat[0]);
+    var tissue = (arduData.tissue = goodDat[1]);
+    var sendData = {
+      human,
+      tissue,
+    };
 
-  connection.on("message", function (message) {
-    if (message.type === "utf8") {
-      console.log("Received Message: " + message.utf8Data);
-      connection.sendUTF(message.utf8Data);
-    } else if (message.type === "binary") {
-      console.log(
-        "Received Binary Message of " + message.binaryData.length + " bytes"
-      );
-      connection.sendBytes(message.binaryData);
-    }
+    app.locals.data = sendData;
 
-    console.log(message);
+    console.log(sendData);
   });
+
+  soket.on("end", () => {
+    console.log("클라이언트 연결 종료");
+  });
+
+  function parseString(data) {
+    var resultList = [];
+    var commaSplit = data.split(",");
+
+    var human = commaSplit[0];
+    var tissue = commaSplit[1];
+
+    resultList[0] = human.split("<")[1];
+    typeof tissue === "string"
+      ? (resultList[1] = tissue.split(">")[0])
+      : console.log(typeof tissue);
+
+    return resultList;
+  }
 });
 
-// // 1. String 데이터를 정게하기 위한 임의 공간
-// var arduData = {
-//   human: 0,
-//   tissue: 0,
-// };
+server.listen(TCPPORT, handleListening(TCPPORT));
 
-// // 3. 클라이언트로 수신 데이터 송신 모듈
-// webSocketServer.on("connection", (ws, request) => {
-//   parser.on("data", (data) => {
-//     var dataToString = data.toString();
-//     var goodDat = parseString(dataToString);
-//     arduData.human = goodDat[0];
-//     arduData.tissue = goodDat[1];
-//     var sendData = `{
-//       human: ${arduData.human},
-//       tissue: ${arduData.tissue},
-//     }`;
-//     ws.send(sendData);
-//   });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//   // 2. 수신 String 데이터 인덱싱
-//   function parseString(data) {
-//     var resultList = [];
-//     var commaSplit = data.split(",");
-//     var human = commaSplit[0];
-//     resultList[0] = Number(human.split("<")[1]);
-//     resultList[1] = Number(commaSplit[1]);
-//     return resultList;
-//   }
-// });
+import morgan from "morgan";
+
+const logger = morgan("dev");
+const bodyParser = require("body-parser");
+
+app.set("view engine", "ejs");
+app.set("views", process.cwd() + "/src/views");
+app.use(logger);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.static("src/public/css"));
+app.use(express.static("src/public/js"));
+app.use(express.static("src/public/images"));
+
+app.get("/", (req, res) => {
+  const data = app.locals.data;
+  if (data) {
+    const { human, tissue } = data;
+    return res.render("home", { pageTitle: "Home", human, tissue });
+  } else {
+    console.log("no request data");
+    return res.render("home", { pageTitle: "Home", human: 0, tissue: 0 });
+  }
+});
+
+const SERVERPORT = process.env.PORT || 5000;
+
+app.listen(SERVERPORT, handleListening(SERVERPORT));

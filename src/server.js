@@ -20,4 +20,8 @@ app.use("/", rootRouter);
 
 app.use("/data", rootRouter);
 
+app.get("*", (req, res) => {
+  res.redirect("/");
+});
+
 export default app;

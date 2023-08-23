@@ -127,15 +127,7 @@ main {
   margin: 0 15px;
 }
 
-/* .status_other .human_data .hide {
-  display: none;
-}
-
-.status_other .tissue_data .hide {
-  display: none;
-} */
-
-.status_other .human_data {
+/* .status_other .human_data {
   display: none;
   background-color: rgb(100, 151, 100);
   border-radius: 10px;
@@ -143,6 +135,20 @@ main {
 
 .status_other .tissue_data {
   display: none;
+  background-color: rgb(47, 191, 235);
+  border-radius: 10px;
+} */
+
+.status_other .human_wifiData {
+  display: none;
+  font-size: 0;
+  background-color: rgb(100, 151, 100);
+  border-radius: 10px;
+}
+
+.status_other .tissue_wifiData {
+  display: none;
+  font-size: 0;
   background-color: rgb(47, 191, 235);
   border-radius: 10px;
 }

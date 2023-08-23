@@ -13,6 +13,7 @@
 
     <!-- js -->
     <!-- <script defer type="module" src="/socket.js"></script> -->
+    <script defer type="module" src="/wifi.js"></script>
 
     <!-- icon -->
     <link
@@ -137,7 +138,7 @@
         <div class="management_info">
           <img src="/test_logo.png" alt="" class="info_logo" />
           <div class="info_title">
-            <div class="info_location">유엔조각공원 | 조성윤</div>
+            <div class="info_location">유엔공원 | 조성윤</div>
             <!-- <div class="info_user"></div> -->
             <!-- <div class="info_date">Created: 24/02/2023</div> -->
           </div>
@@ -148,8 +149,10 @@
             <li class="view_status">
               <div class="status_main">1</div>
               <ul class="status_other">
-                <li class="human_data"></li>
-                <li class="tissue_data"></li>
+                <!-- <li class="human_data"></li> -->
+                <!-- <li class="tissue_data"></li> -->
+                <li class="human_wifiData" value=""><%= human %></li>
+                <li class="tissue_wifiData" value=""><%= tissue %></li>
               </ul>
             </li>
             <li class="view_status">

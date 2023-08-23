@@ -1,8 +1,9 @@
 // 웹소켓 클라이언트 객체 생성 및 접속 IP + PORT 설정
 // PORT는 서버 컴퓨터 고유 IP + PORT로 설정 해야함
-var webSocket = new WebSocket(`ws://192.168.0.192:4000`);
+// var webSocket = new WebSocket(`ws://192.168.0.192:4000`);
 // var webSocket = new WebSocket(`ws://192.168.0.40:3000`);
-// var webSocket = new WebSocket(`ws://localhost:4000`);
+var webSocket = new WebSocket(`ws://localhost:4500`);
+// var webSocket = new WebSocket(`ws://192.168.111.200:4500`);
 
 // 웹소켓 연결 확인 이벤트 처리
 webSocket.onopen = () => {
@@ -11,7 +12,8 @@ webSocket.onopen = () => {
 
 // 메세지 수신 이벤트 처리
 webSocket.onmessage = function (event) {
-  // console.log(`서버 웹소켓에게 받은 데이터: ${event.data}`);
+  console.log(`서버 웹소켓에게 받은 데이터: ${event.data}`);
+  webSocket.send(event.data);
 
   const StatusMainData = document.querySelector(".status_main");
   const humanData = document.querySelector(".human_data");

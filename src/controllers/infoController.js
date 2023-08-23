@@ -1,16 +1,13 @@
 const ip = require("ip");
 const addr = ip.address();
+// console.log(addr);
 
 export const getHome = (req, res) => {
-  console.log(addr);
-
-  res.render("home", { pageTitle: "Home" });
+  return res.render("home", { pageTitle: "Home" });
 };
 
 export const getData = (req, res) => {
-  res.render("data", { pageTitle: "Data" });
+  return res.render("data", { pageTitle: "Data" });
 };
 
-export const postData = (req, res) => {
-  const receivedData = req.body.data;
-};
+export const postData = (req, res) => {};
