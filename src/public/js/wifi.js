@@ -15,17 +15,17 @@ setInterval(() => {
   location.reload();
 }, 3000);
 
-var tissueBoundary = 300;
+var tissueBoundary = 350;
 
 humanNum === 1
   ? (humanwifiData.style.display = "block")
   : (humanwifiData.style.display = "none");
 
-tissueNum > tissueBoundary
+tissueNum < tissueBoundary
   ? (tissuewifiData.style.display = "block")
   : (tissuewifiData.style.display = "none");
 
-humanNum === 1 || tissueNum > tissueBoundary
+humanNum === 1 || tissueNum < tissueBoundary
   ? (StatusMainData.style.backgroundColor = "red")
   : (StatusMainData.style.backgroundColor = "rgb(171, 247, 31)");
 
