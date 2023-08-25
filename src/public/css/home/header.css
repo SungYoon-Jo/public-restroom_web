@@ -56,3 +56,15 @@ header {
 .user_profile .profile_name {
   font-family: var(--font-kor);
 }
+
+@media (max-width: 600px) {
+  header {
+    padding: 14px 20px;
+  }
+  header nav {
+    display: none;
+  }
+  header .user {
+    right: 20px;
+  }
+}

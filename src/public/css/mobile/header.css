@@ -1,0 +1,38 @@
+.headerBar {
+  background-color: #fff;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--color-border);
+}
+
+header ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: var(--font-kor);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.headerBar .article span {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.headerBar .title {
+  display: flex;
+  align-items: center;
+}
+
+.headerBar .title p {
+  padding-left: 10px;
+}
+
+.headerBar .title img,
+.headerBar .profile img {
+  width: 40px;
+  cursor: pointer;
+}

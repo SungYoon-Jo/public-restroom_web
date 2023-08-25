@@ -20,6 +20,8 @@ app.use("/", rootRouter);
 
 app.use("/data", rootRouter);
 
+app.use("/mobile", rootRouter);
+
 app.get("*", (req, res) => {
   res.redirect("/");
 });

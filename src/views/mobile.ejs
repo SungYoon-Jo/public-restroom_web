@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restroom | <%= pageTitle %></title>
+
+    <!-- js -->
+    <script defer type="module" src="/mobileWifi.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="/mobileStyles.css" />
+    <link rel="stylesheet" href="/mobile/header.css" />
+    <link rel="stylesheet" href="/mobile/main.css" />
+
+    <!-- icon -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Roboto:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <ul class="headerBar">
+        <li class="article">
+          <span class="material-symbols-outlined"> menu </span>
+        </li>
+        <li class="title">
+          <img src="/toilets.png" alt="" />
+          <p>유엔조각공원 공중화장실</p>
+        </li>
+        <li class="profile">
+          <a href="/"><img src="/person.png" alt="" /></a>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <div>
+        <ul class="gender_field">
+          <li class="male">
+            <img src="/male.png" alt="" />
+          </li>
+          <div class="line1">
+            <img src="/line1.png" alt="" />
+          </div>
+          <li class="female">
+            <img src="/female.png" alt="" />
+          </li>
+        </ul>
+      </div>
+
+      <div class="management_view">
+        <img class="line2" src="/line2.png" alt="" />
+        <ul class="view_info">
+          <li class="view_status">
+            <div class="status_main"></div>
+            <ul class="status_other">
+              <li class="human_wifiData" value=""><%= human %></li>
+              <li class="tissue_wifiData" value=""><%= tissue %></li>
+            </ul>
+          </li>
+          <li class="view_status">
+            <div class="status_one"></div>
+          </li>
+          <li class="view_status">
+            <div class="status_one"></div>
+          </li>
+          <li class="view_status">
+            <div class="status_one"></div>
+          </li>
+          <li class="view_status">
+            <div class="status_one_red"></div>
+          </li>
+          <li class="view_status">
+            <div class="status_one"></div>
+          </li>
+          <li class="view_status">
+            <div class="status_one_red"></div>
+          </li>
+          <li class="view_status">
+            <div class="status_one_red"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="management_view">
+        <img class="line2" src="/line2.png" alt="" />
+        <ul class="view_info">
+          <li class="view_status">
+            <div class="true">사용가능</div>
+            <div class="status_one"></div>
+          </li>
+          <li class="view_status">
+            <div class="false">사용 불가능</div>
+            <div class="status_one_red"></div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

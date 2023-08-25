@@ -9,9 +9,9 @@ body {
   font-size: 16px;
   line-height: 1;
   word-break: keep-all;
+  width: 412px;
+  height: 1075px;
   background-color: #f5f5f5;
-  max-width: 1550px;
-  max-height: 1700px;
   font-family: "Roboto", sans-serif;
   position: relative;
 }

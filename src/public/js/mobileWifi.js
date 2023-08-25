@@ -1,4 +1,4 @@
-console.log("testWifi.js loaded");
+console.log("mobileWifi.js loaded");
 
 const StatusMainData = document.querySelector(".status_main");
 const humanwifiData = document.querySelector(".human_wifiData");
@@ -12,8 +12,8 @@ setInterval(() => {
 }, 3000);
 
 // data test
-// humanNum = 0;
-// tissueNum = 3000;
+// humanNum = 1;
+// tissueNum = 200;
 
 var tissueBoundary = 350;
 

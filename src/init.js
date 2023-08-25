@@ -84,6 +84,17 @@ app.get("/", (req, res) => {
   }
 });
 
+app.get("/mobile", (req, res) => {
+  const data = app.locals.data;
+  if (data) {
+    const { human, tissue } = data;
+    return res.render("mobile", { pageTitle: "Mobile", human, tissue });
+  } else {
+    console.log("no request data");
+    return res.render("mobile", { pageTitle: "Mobile", human: 0, tissue: 0 });
+  }
+});
+
 const SERVERPORT = process.env.PORT || 5000;
 
 app.listen(SERVERPORT, handleListening(SERVERPORT));
