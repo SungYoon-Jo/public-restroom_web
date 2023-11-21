@@ -9,7 +9,7 @@ var tissueNum = Number(tissuewifiData.textContent);
 
 setInterval(() => {
   location.reload();
-}, 3000);
+}, 5000);
 
 // data test
 // humanNum = 0;

@@ -28,6 +28,7 @@
 .board_title .board_mainTitle {
   font-family: var(--font-kor);
   font-size: 20px;
+  font-weight: bold;
 }
 
 .board_title .board_subTitle {
